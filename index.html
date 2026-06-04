@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kala Kamna - Handmade Paintings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <img src="assets/logo-monogram.png" alt="Kala Kamna Logo" class="splash-logo">
+            <h1 class="splash-text">कला कामना</h1>
+            <p class="splash-subtitle">Handmade Paintings</p>
+        </div>
+    </div>
+
+    <!-- Categories Page -->
+    <div id="categories-page" class="categories-page hidden">
+        <div class="logo-corner">
+            <img src="assets/logo-monogram.png" alt="Kala Kamna" class="corner-logo">
+        </div>
+
+        <div class="categories-container">
+            <h1 class="page-title">Explore Our Collections</h1>
+            <div class="categories-grid">
+                <div class="category-card" data-category="bharat-kala">
+                    <div class="category-inner">
+                        <img src="assets/bharat-kala.jpg" alt="Bharat Kala" class="category-image">
+                        <div class="category-overlay">
+                            <h2>Bharat Kala</h2>
+                            <p>Traditional Indian Art</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="beyond-canvas">
+                    <div class="category-inner">
+                        <img src="assets/beyond-canvas.jpg" alt="Beyond the Canvas" class="category-image">
+                        <div class="category-overlay">
+                            <h2>Beyond the Canvas</h2>
+                            <p>Sculptural Designs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="scenic-escapes">
+                    <div class="category-inner">
+                        <img src="assets/scenic-escapes.jpg" alt="Scenic Escapes" class="category-image">
+                        <div class="category-overlay">
+                            <h2>Scenic Escapes</h2>
+                            <p>Nature & Landscapes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="crystal-resin">
+                    <div class="category-inner">
+                        <img src="assets/crystal-resin.jpg" alt="Crystal Resin Series" class="category-image">
+                        <div class="category-overlay">
+                            <h2>Crystal Resin</h2>
+                            <p>Modern Abstract Art</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="dev-kala">
+                    <div class="category-inner">
+                        <img src="assets/dev-kala.jpg" alt="Dev Kala" class="category-image">
+                        <div class="category-overlay">
+                            <h2>Dev Kala</h2>
+                            <p>Spiritual & Divine</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Page -->
+    <div id="products-page" class="products-page hidden">
+        <div class="logo-corner">
+            <img src="assets/logo-monogram.png" alt="Kala Kamna" class="corner-logo">
+        </div>
+
+        <div class="products-container">
+            <div class="products-header">
+                <button class="back-btn" id="back-btn">← Back to Categories</button>
+                <h1 id="products-title" class="products-title">Category Title</h1>
+            </div>
+
+            <div id="products-grid" class="products-grid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
