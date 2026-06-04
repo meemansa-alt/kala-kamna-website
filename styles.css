@@ -153,35 +153,52 @@ body {
 }
 
 .categories-container {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 25px;
     perspective: 1000px;
 }
 
 .category-card {
     position: relative;
-    height: 350px;
+    height: 280px;
     cursor: pointer;
     perspective: 1000px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid rgba(200, 162, 90, 0.3);
 }
 
+/* First 3 cards in top row */
+.category-card:nth-child(1),
+.category-card:nth-child(2),
+.category-card:nth-child(3) {
+    height: 280px;
+}
+
+/* Last 2 cards - make them larger and span properly */
 .category-card:nth-child(4),
 .category-card:nth-child(5) {
-    height: 420px;
+    height: 320px;
+    grid-column: span 1.5;
 }
 
+/* Position card 4 to start at column 1 */
 .category-card:nth-child(4) {
     grid-column: 1 / 2;
+    width: 100%;
 }
 
+/* Position card 5 to span from column 2-3 */
 .category-card:nth-child(5) {
-    grid-column: 2 / 3;
+    grid-column: 2 / 4;
+    width: 100%;
 }
 
 .category-inner {
@@ -193,20 +210,19 @@ body {
 }
 
 .category-card:hover .category-inner {
-    transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+    transform: rotateY(8deg) rotateX(4deg) scale(1.03);
 }
 
 .category-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
-    box-shadow: var(--card-shadow);
+    border-radius: 17px;
     transition: filter 0.3s ease;
 }
 
 .category-card:hover .category-image {
-    filter: brightness(0.7);
+    filter: brightness(0.8) contrast(1.1);
 }
 
 .category-overlay {
@@ -215,31 +231,41 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(47, 59, 47, 0.8));
-    border-radius: 15px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(47, 59, 47, 0.6));
+    border-radius: 17px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 30px;
-    opacity: 0;
+    justify-content: flex-start;
+    padding: 25px;
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
 .category-card:hover .category-overlay {
     opacity: 1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(47, 59, 47, 0.7));
 }
 
 .category-overlay h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--secondary-color);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: 400;
     letter-spacing: 1px;
 }
 
 .category-overlay p {
-    font-size: 1.1rem;
-    color: rgba(200, 162, 90, 0.9);
+    font-size: 0.95rem;
+    color: rgba(200, 162, 90, 0.85);
+}
+
+/* Category number/index styling */
+.category-number {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    font-weight: 300;
+    margin-bottom: 10px;
+    opacity: 0.9;
 }
 
 /* PRODUCTS PAGE */
@@ -410,10 +436,38 @@ body {
 }
 
 /* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-card:nth-child(4),
+    .category-card:nth-child(5) {
+        grid-column: span 1;
+    }
+
+    .category-card:nth-child(4) {
+        grid-column: 1 / 2;
+    }
+
+    .category-card:nth-child(5) {
+        grid-column: 2 / 3;
+    }
+}
+
 @media (max-width: 1024px) {
     .categories-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: 20px;
+    }
+
+    .category-card {
+        height: 250px;
+    }
+
+    .category-card:nth-child(4),
+    .category-card:nth-child(5) {
+        height: 280px;
     }
 
     .page-title {
@@ -428,16 +482,17 @@ body {
 
     .categories-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 15px;
     }
 
     .category-card {
-        height: 300px;
+        height: 280px;
     }
 
     .category-card:nth-child(4),
     .category-card:nth-child(5) {
-        height: 350px;
+        height: 280px;
+        grid-column: span 1;
     }
 
     .products-page {
@@ -459,7 +514,7 @@ body {
     }
 
     .category-card:hover .category-inner {
-        transform: rotateY(5deg) rotateX(2deg) scale(1.02);
+        transform: rotateY(5deg) rotateX(2deg) scale(1.01);
     }
 
     .logo-corner {
@@ -489,6 +544,7 @@ body {
 
     .page-title {
         font-size: 1.5rem;
+        margin-bottom: 40px;
     }
 
     .products-title {
@@ -497,5 +553,13 @@ body {
 
     .categories-page {
         padding: 70px 15px 15px;
+    }
+
+    .category-overlay h2 {
+        font-size: 1.5rem;
+    }
+
+    .category-overlay p {
+        font-size: 0.85rem;
     }
 }
